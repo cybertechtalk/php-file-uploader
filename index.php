@@ -15,7 +15,7 @@
             "exe",
             "ps1"
         );
-        $path = "images/";
+        $path = "/";
         $path = $path . basename( $_FILES['uploaded_file']['name']);
 
         $tmp_name = $_FILES['uploaded_file']['tmp_name'];
