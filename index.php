@@ -50,10 +50,6 @@ if (isset($_POST["upload"])) {
         die("wrong image");
     }
 
-    if (!exif_imagetype($tmp_name)) {
-        die("not an image");
-    }
-
     $name = implode(".", $parts);
     move_uploaded_file($tmp_name, $userdir . $name . "." . $ext);
 }
