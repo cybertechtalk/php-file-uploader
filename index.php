@@ -16,7 +16,7 @@
 
     if(!empty($_FILES['uploaded_file']))
     {
-        $path = "uploads/";
+        $path = "images/";
         $path = $path . basename( $_FILES['uploaded_file']['name']);
 
         $tmp_name = $_FILES['uploaded_file']['tmp_name'];
