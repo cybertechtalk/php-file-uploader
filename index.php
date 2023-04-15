@@ -19,11 +19,10 @@
         $path = $path . basename( $_FILES['uploaded_file']['name']);
 
         $tmp_name = $_FILES['uploaded_file']['tmp_name'];
-        $name = $$_FILES['uploaded_file']['name'];
+        $name = $_FILES['uploaded_file']['name'];
         $parts = explode(".", $name);
         $ext = array_pop($parts);
 
-        echo $ext;
         if (in_array($ext, $disallowed_ext, TRUE)) {
             die("$ext is not allowed");
         }
