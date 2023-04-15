@@ -41,10 +41,6 @@ if (isset($_POST["upload"])) {
         array_shift($parts);
     }
 
-    if (count($parts) === 0) {
-        die("filename is empty");
-    }
-
     if (in_array($ext, $disallowed_ext, TRUE)) {
         die("$ext is not allowed");
     }
