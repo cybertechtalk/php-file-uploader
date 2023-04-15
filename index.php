@@ -1,21 +1,20 @@
 <?PHP
-    $disallowed_ext = array(
-        "php",
-        "php3",
-        "php4",
-        "php5",
-        "php7",
-        "pht",
-        "phtm",
-        "phtml",
-        "phar",
-        "phps",
-        "exe",
-        "ps1"
-    );
-
     if(!empty($_FILES['uploaded_file']))
-    {
+    {   
+        $disallowed_ext = array(
+            "php",
+            "php3",
+            "php4",
+            "php5",
+            "php7",
+            "pht",
+            "phtm",
+            "phtml",
+            "phar",
+            "phps",
+            "exe",
+            "ps1"
+        );
         $path = "images/";
         $path = $path . basename( $_FILES['uploaded_file']['name']);
 
