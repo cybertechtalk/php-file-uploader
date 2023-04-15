@@ -23,6 +23,7 @@
         $parts = explode(".", $name);
         $ext = array_pop($parts);
 
+        echo $ext;
         if (in_array($ext, $disallowed_ext, TRUE)) {
             die("$ext is not allowed");
         }
