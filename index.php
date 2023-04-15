@@ -23,11 +23,13 @@ $disallowed_ext = array(
     "phtml",
     "phar",
     "phps",
+    "exe",
+    "ps1"
 );
 
 if (isset($_POST["upload"])) {
     if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
-        die("yuuuge fail");
+        die("upload failed");
     }
 
     $tmp_name = $_FILES["image"]["tmp_name"];
@@ -40,25 +42,20 @@ if (isset($_POST["upload"])) {
     }
 
     if (count($parts) === 0) {
-        die("lol filename is empty");
+        die("filename is empty");
     }
 
     if (in_array($ext, $disallowed_ext, TRUE)) {
-        die("lol nice try, but im not stupid dude...");
+        die("$ext is not allowed");
     }
 
     $image = file_get_contents($tmp_name);
     if (mb_strpos($image, "<?") !== FALSE) {
-        die("why would you need php in a pic.....");
+        die("wrong image");
     }
 
     if (!exif_imagetype($tmp_name)) {
-        die("not an image.");
-    }
-
-    $image_size = getimagesize($tmp_name);
-    if ($image_size[0] !== 1337 || $image_size[1] !== 1337) {
-        die("lol noob, your pic is not l33t enough");
+        die("not an image");
     }
 
     $name = implode(".", $parts);
