@@ -72,7 +72,15 @@ foreach(glob($userdir . "*") as $file) {
 echo "</ul>";
 
 ?>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
     <div class="h-64 border-solid border-black border-4 text-center" id="dropzone">
         Drop file here
     </div>
@@ -82,3 +90,15 @@ echo "</ul>";
     <input type="submit" name=upload>
 </form>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        var $dropzone = $('#dropzone');
+        $dropzone.on('drag dragstart dragend dragover dragenter dragleave drop', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }).on('drop', function(event) {
+            document.querySelector('#files').files = event.originalEvent.dataTransfer.files;
+        });
+    </script>
+</body>
+</html>
